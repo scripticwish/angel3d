@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glacial: #f7f9fc;
+  --ink: #0e1116;
+  --cobalt: #2563eb;
+  --cobalt-glow: #60a5fa;
+  --muted: #5b6475;
+  --line: rgba(14, 17, 22, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--glacial);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--glacial);
+}
+
+/* Tactile ice-paper grain overlay inspired by Folio Room */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.24;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+}
+
+.hero-gradient-ink {
+  background: linear-gradient(180deg, #0e1116 0%, #273449 58%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-gradient-light {
+  background: linear-gradient(180deg, #ffffff 0%, #b8ceff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3D card stage utilities */
+.stage-3d {
+  perspective: 1800px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d-front {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Морозный сине-стальной фон с эффектом инея */
+.frost-surface {
+  background: linear-gradient(155deg, #1e2e47 0%, #273d5c 48%, #1a283f 100%);
+  box-shadow:
+    0 24px 60px rgba(14, 24, 44, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Кнопка в стиле морозного льда */
+.frost-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1e3a6e 60%, #1a283f 100%);
+  border: 1px solid rgba(186, 230, 253, 0.45);
+  box-shadow:
+    0 12px 30px rgba(37, 99, 235, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
+}
+
+.frost-btn:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 55%, #1e3a6e 100%);
+  border-color: rgba(224, 242, 254, 0.8);
+}
+
+/* Морозный сине-стальной градиент для крупных заголовков */
+.frost-text {
+  background: linear-gradient(145deg, #162238 0%, #243b5e 52%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
